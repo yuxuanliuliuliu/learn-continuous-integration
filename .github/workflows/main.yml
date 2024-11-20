@@ -30,6 +30,7 @@ jobs:
 
       - name: Merge main into deploy
         run: |
+          git fetch origin deploy  # Fetch the deploy branch
           git checkout deploy  # Switch to deploy branch
           git merge main --no-ff -m "Merging main into deploy branch"
           git push origin deploy  # Push the updated deploy branch
