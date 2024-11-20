@@ -25,8 +25,7 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v3
         with:
-          ref: main  # Ensure you are on the 'main' branch
-
+          ref: main  # checkout the 'main' branch
 
       - name: Merge main into deploy
         run: |
