@@ -27,11 +27,19 @@ jobs:
         with:
           ref: main  # checkout the 'main' branch
 
+      - name: Fetch all branches
+        run: git fetch --all
+
       - name: Merge main into deploy
         run: |
-          git fetch origin deploy  # Fetch the deploy branch
-          git checkout deploy  # Switch to deploy branch
-          git merge main --no-ff -m "Merging main into deploy branch"
+          git checkout deploy || git checkout -b deploy
+          
+      - name: Merge main to deploy
+        run: |
+          git merge origin/main --no-ff -m "Merging main into deploy branch"
+      
+      - name: Push deploy branch
+        run: |
           git push origin deploy  # Push the updated deploy branch
 
   "run-tests-on-deploy":
