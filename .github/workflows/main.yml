@@ -17,3 +17,31 @@ jobs:
 
       - name: Run Tests
         run: npx jest tests/
+
+  "merge-and-deploy":
+    runs-on: cs5500-self-hosted
+    needs: run-jest-tests  # This job will only run if 'run-jest-tests' succeeds
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: main  # Ensure you are on the 'main' branch
+
+
+      - name: Merge main into deploy
+        run: |
+          git checkout deploy  # Switch to deploy branch
+          git merge main --no-ff -m "Merging main into deploy branch"
+          git push origin deploy  # Push the updated deploy branch
+
+  "run-tests-on-deploy":
+    runs-on: cs5500-self-hosted
+    needs: merge-and-deploy  # This job will only run if 'merge-and-deploy' succeeds
+    steps:
+      - name: Checkout deploy branch
+        uses: actions/checkout@v3
+        with:
+          ref: deploy  # Checkout the deploy branch
+
+      - name: Run Tests on Deploy
+        run: npx jest tests/
