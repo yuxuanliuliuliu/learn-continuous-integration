@@ -20,7 +20,7 @@ jobs:
 
   "merge-and-deploy":
     runs-on: cs5500-self-hosted
-    needs: run-jest-tests  # This job will only run if 'run-jest-tests' succeeds
+    needs: run-jest-tests  # This job will only run if 'run-jest-tests' passes
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v3
