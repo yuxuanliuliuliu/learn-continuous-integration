@@ -6,15 +6,14 @@ on:
       - main
 
 jobs:
-  test:
+  "run jest tests":
     runs-on: cs5500-self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-  steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Run Tests
-      run: npx jest tests/
+      - name: Run Tests
+        run: npx jest tests/
