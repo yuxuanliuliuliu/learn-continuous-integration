@@ -36,7 +36,7 @@ jobs:
           
       - name: Merge main to deploy
         run: |
-          git merge origin/main --no-ff -m "Merging main into deploy branch"
+          git merge origin/main --allow-unrelated-histories  # Merge main into deploy, forcing the merge despite unrelated histories
       
       - name: Push deploy branch
         run: |
