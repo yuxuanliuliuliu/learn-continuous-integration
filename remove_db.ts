@@ -20,7 +20,7 @@ mongoose.connect(mongoDB)
 
                 console.log('Database cleared');
             } catch (err) {
-                console.log('ERROR: ' + err);
+                console.log('ERROR when dropping: ' + err);
             } finally {
                 // Close the database connection
                 db.close();
@@ -29,13 +29,15 @@ mongoose.connect(mongoDB)
 
         // Run the function to clear the database
         clearDatabase().catch((err) => {
-            console.log('ERROR: ' + err);
+            console.log('ERROR when clearing: ' + err);
             db.close();
+            process.exit(1);
         });
 
     })
     .catch(err => {
-        console.log('ERROR: ' + err);
+        console.log('ERROR when connecting: ' + err);
+        process.exit(1);
     });
 
 console.log('Processing ...');
