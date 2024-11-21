@@ -21,6 +21,8 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "test": "npx jest tests/" 
+    "test": "npx jest tests/", 
+    "insert-sample-data": "npx ts-node insert_sample_data.ts",
+    "remove-sample-data": "npx ts-node remove_db.ts"
   }
 }
