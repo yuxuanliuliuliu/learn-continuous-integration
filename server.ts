@@ -26,6 +26,7 @@ db.on('connected', () => {
   console.log('Connected to database');
 });
 
+// cors policy that allows requests from all origins
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
