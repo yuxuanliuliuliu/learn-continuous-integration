@@ -10,7 +10,7 @@ on:
       - deploy
 
 jobs:
-  "run-jest-tests":
+  run-jest-tests:
     runs-on: cs5500-self-hosted
     steps:
       - name: Checkout Repository
