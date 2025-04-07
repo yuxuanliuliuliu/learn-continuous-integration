@@ -43,7 +43,7 @@ describe("Verify POST /create_book", () => {
         const response = await request(app)
             .post('/newbook')
             .send(mockReqBody);
-        expect(response.statusCode).toBe(505);
+        expect(response.statusCode).toBe(500);
         expect(response.text).toBe('Error creating book: Gora');
     });
 
