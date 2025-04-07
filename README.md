@@ -36,14 +36,14 @@ All this represented in the `.github/workflows/main.yml` file.
 
 First setup your machine or your teammate's machine to be the self hosted runner using the instructions in __Setup__.
 
-- Create a deploy branch
+- Create a deploy branch if it doesn't already exist
 - Submit a pull request to the deploy branch from main
-- Observe the actions branch in your repository.
+- Observe the actions branch in your repository
 
 
 Answer the following questions:
 
-1. What does the __runs-on__ string  
+1. What does the __runs-on__ string mean?
 2. In `main.yml`, on which branch do the jest tests run when a push to main branch is made?
 3. In `main.yml`, on which branch do the jest tests run when a pull request is submitted to the deploy branch?
 
