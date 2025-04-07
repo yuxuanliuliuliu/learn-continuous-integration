@@ -21,7 +21,7 @@ router.get('/', async (_, res: Response) => {
     }
   } catch (error) {
     console.error('Error processing request:', error);
-    res.status(500).send('Error when retireving author details');
+    res.status(400).send('Error when retireving author details');
   }
 });
 
