@@ -40,13 +40,6 @@ First setup your machine or your teammate's machine to be the self hosted runner
 - Submit a pull request to the deploy branch from main
 - Observe the actions branch in your repository
 
-
-Answer the following questions:
-
-1. What does the __runs-on__ string mean?
-2. In `main.yml`, on which branch do the jest tests run when a push to main branch is made?
-3. In `main.yml`, on which branch do the jest tests run when a pull request is submitted to the deploy branch?
-
-Next, create a new workflow yml file that captures the following continuous integration requirement:
+Create a new workflow yml file that captures the following continuous integration requirement:
 
 - When new changes are pushed to the deploy branch, the sample data should be setup using the scripts in `remove_db.ts` and `insert_sample_db.ts`.
