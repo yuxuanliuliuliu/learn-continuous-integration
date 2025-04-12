@@ -1,0 +1,23 @@
+name: Setup Sample Data
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  "setup-sample-data":
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Clear Database
+        run: npx ts-node remove_db.ts "mongodb://127.0.0.1:27017/my_library_db"
+
+      - name: Insert Sample Data
+        run: npx ts-node insert_sample_data.ts "mongodb://127.0.0.1:27017/my_library_db"

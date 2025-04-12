@@ -43,4 +43,5 @@ First setup your machine or your teammate's machine to be the self hosted runner
 Create a new workflow yml file that captures the following continuous integration requirement:
 
 - When new changes are pushed to the deploy branch, the sample data should be setup using the scripts in `remove_db.ts` and `insert_sample_db.ts`.
-  change readme to test workflow
+ change readme to test workflow
+
